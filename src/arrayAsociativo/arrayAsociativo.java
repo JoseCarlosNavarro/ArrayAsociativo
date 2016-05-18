@@ -52,4 +52,17 @@ public class arrayAsociativo {
 		return valor;
 	}
 
+	public Boolean containsKey(String clave) {
+		boolean esta=false;
+		Nodo current = primero;
+		while (current.siguiente != null && current.clave != clave) {
+			current = current.siguiente;
+		}
+		
+		if(current.clave==clave){
+			esta=true;
+		}
+		return esta;
+	}
+
 }
