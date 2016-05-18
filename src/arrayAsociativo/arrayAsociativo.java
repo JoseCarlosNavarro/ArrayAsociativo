@@ -65,4 +65,14 @@ public class arrayAsociativo {
 		return esta;
 	}
 
+	public int size() {
+		int cont=0;
+		Nodo current = primero;
+		while (current.siguiente != null) {
+			cont++;
+			current = current.siguiente;
+		}
+		return cont;
+	}
+
 }
