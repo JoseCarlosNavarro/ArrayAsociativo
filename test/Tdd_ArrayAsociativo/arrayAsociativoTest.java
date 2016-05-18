@@ -108,4 +108,11 @@ public class arrayAsociativoTest {
 		array.put("nombre", "jose");
 		assertEquals(array.containsKey("edad"), false);
 	}
+	
+	@Test
+	public void NumeroDeEntradasDelArray() {
+		array.put("alumno", "luis");
+		array.put("nombre", "jose");
+		assertEquals(array.size(), 2);
+	}
 }
