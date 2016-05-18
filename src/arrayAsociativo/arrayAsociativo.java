@@ -46,7 +46,9 @@ public class arrayAsociativo {
 		}
 		if (current.clave == clave) {
 			valor = current.valor;
-		} 
+		} else{
+			valor = valorPorDefecto;
+		}
 		return valor;
 	}
 
