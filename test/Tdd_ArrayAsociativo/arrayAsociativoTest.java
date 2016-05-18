@@ -72,7 +72,7 @@ public class arrayAsociativoTest {
 		Nodo current = array.primero;
 		array.put("nombre", "jose");
 		while(current.siguiente != null && current.clave!= "nombre") current = current.siguiente;
-		assertEquals(current.get("nombre"), "jose");
+		assertEquals(array.get("nombre"), "jose");
 	}
 	
 }
