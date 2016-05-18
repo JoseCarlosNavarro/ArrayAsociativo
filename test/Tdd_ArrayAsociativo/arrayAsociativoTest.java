@@ -80,4 +80,11 @@ public class arrayAsociativoTest {
 		array.put("nombre", "jose");
 		array.get("edad");
 	}
+	
+	@Test
+	public void BuscaClaveyDevuelveValorAsociadoGetOrElse(){
+		array.put("alumno", "luis");
+		array.put("nombre", "jose");
+		assertEquals(array.getOrElse("nombre", "valorPorDefecto"), "jose");
+	}
 }
