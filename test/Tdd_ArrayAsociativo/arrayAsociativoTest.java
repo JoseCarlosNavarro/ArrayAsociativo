@@ -19,7 +19,7 @@ public class arrayAsociativoTest {
 
 	@Test
 	public void crearNodoConDatos(){
-		Nodo nd = new Nodo("clave","valor",null);
+		Nodo nd = new Nodo("clave","valor");
 		assertEquals(nd.clave, "clave");
 		assertEquals(nd.valor, "valor");
 		assertEquals(nd.siguiente, null);
