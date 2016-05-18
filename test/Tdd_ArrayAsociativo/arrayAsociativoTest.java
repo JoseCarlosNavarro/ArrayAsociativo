@@ -45,4 +45,15 @@ public class arrayAsociativoTest {
 		
 	}
 	
+	@Test
+	public void InsertarNuevaEntradaSinClaveRepetida(){
+		array.put("edad", "14");
+		Nodo current = array.primero;
+		array.put("nombre", "luis");
+		while(current.siguiente != null) current = current.siguiente;
+		assertEquals(current.clave, "nombre");
+		assertEquals(current.valor, "luis");
+		
+	}
+	
 }
