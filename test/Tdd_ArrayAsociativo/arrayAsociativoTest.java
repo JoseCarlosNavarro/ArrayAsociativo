@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import arrayAsociativo.Nodo;
+import arrayAsociativo.arrayAsociativo;;
 
 public class arrayAsociativoTest {
 
@@ -26,7 +27,7 @@ public class arrayAsociativoTest {
 	
 	@Test
 	public void crearNuevoArrayAsociativoVacio(){
-		arrayAsociativoTest array = new arrayAsociativoTest();
-		assertArrayEquals(array.primero, null);
+		arrayAsociativo array = new arrayAsociativo();
+		assertEquals(array.primero, null);
 		}
 }
