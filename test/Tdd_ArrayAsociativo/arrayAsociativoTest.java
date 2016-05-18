@@ -1,6 +1,6 @@
 package Tdd_ArrayAsociativo;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -54,6 +54,16 @@ public class arrayAsociativoTest {
 		assertEquals(current.clave, "nombre");
 		assertEquals(current.valor, "luis");
 		
+	}
+	
+	@Test
+	public void InsertarNuevaEntradaArrayConClaveRepetida(){
+		array.put("nombre", "luis");
+		Nodo current = array.primero;
+		array.put("nombre", "jose");
+		while(current.siguiente != null && current.clave!= "nombre") current = current.siguiente;
+		assertEquals(current.clave, "nombre");
+		assertEquals(current.valor, "jose");
 	}
 	
 }
