@@ -16,4 +16,10 @@ public class arrayAsociativoTest {
 		assertEquals(nd.siguiente, null);
 	}
 
+	public void crearNodoConDatos(){
+		Nodo nd = new Nodo("clave","valor",null);
+		assertEquals(nd.clave, "clave");
+		assertEquals(nd.valor, "valor");
+		assertEquals(nd.siguiente, null);
+	}
 }
