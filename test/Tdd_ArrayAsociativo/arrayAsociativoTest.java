@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import arrayAsociativo.ArrayAsociativoException;
 import arrayAsociativo.Nodo;
 import arrayAsociativo.arrayAsociativo;
 
@@ -73,4 +74,10 @@ public class arrayAsociativoTest {
 		assertEquals(array.get("nombre"), "jose");
 	}
 	
+	@Test(expected = ArrayAsociativoException.class)
+	public void BuscaClaveyDevuelveValorAsociadoSinoEncuentraElevaExcepcion(){
+		array.put("alumno", "luis");
+		array.put("nombre", "jose");
+		array.get("edad");
+	}
 }
