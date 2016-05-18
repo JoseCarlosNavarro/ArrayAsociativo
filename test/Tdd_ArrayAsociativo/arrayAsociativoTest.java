@@ -99,6 +99,6 @@ public class arrayAsociativoTest {
 	public void BuscaClaveyLaEncuentraContainskey(){
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
-		assertEquals(containsKey("nombre"), true);
+		assertEquals(array.containsKey("nombre"), true);
 	}
 }
