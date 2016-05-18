@@ -37,7 +37,7 @@ public class arrayAsociativoTest {
 		array.put("nombre", "luis");
 		
 		assertEquals(array.primero.clave, "nombre");
-		assertEquals(array.primero.valor, "nombre");
+		assertEquals(array.primero.valor, "luis");
 		
 	}
 }

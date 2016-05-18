@@ -8,4 +8,9 @@ public class arrayAsociativo {
 		primero=null;
 	}
 
+	public void put(String clave, String valor) {
+		primero = new Nodo(clave,valor,null);
+		
+	}
+
 }
