@@ -94,4 +94,11 @@ public class arrayAsociativoTest {
 		array.put("nombre", "jose");
 		assertEquals(array.getOrElse("edad", "valorPorDefecto"), "valorPorDefecto");
 	}
+	
+	@Test
+	public void BuscaClaveyLaEncuentraContainskey(){
+		array.put("alumno", "luis");
+		array.put("nombre", "jose");
+		assertEquals(containsKey("nombre"), true);
+	}
 }
