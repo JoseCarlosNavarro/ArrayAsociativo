@@ -25,4 +25,16 @@ public class arrayAsociativo {
 
 	}
 
+	public String get(String clave) {
+		Nodo current = primero;
+		String valor ="";
+		while(current.siguiente!=null && current.clave !=clave){
+			current=current.siguiente;
+		}
+		if(current.clave==clave){
+			valor = current.valor;
+		}
+		return valor;
+	}
+
 }
