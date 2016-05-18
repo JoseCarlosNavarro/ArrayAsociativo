@@ -1,14 +1,21 @@
 package Tdd_ArrayAsociativo;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import arrayAsociativo.Nodo;
-import arrayAsociativo.arrayAsociativo;;
+import arrayAsociativo.arrayAsociativo;
 
 public class arrayAsociativoTest {
-
+	arrayAsociativo array;
+	@Before
+	public void setUp(){
+		array = new arrayAsociativo();
+		
+	}
+	 
 	@Test
 	public void crearNodoVacio() {
 		Nodo nd = new Nodo();
@@ -27,17 +34,15 @@ public class arrayAsociativoTest {
 	
 	@Test
 	public void crearNuevoArrayAsociativoVacio(){
-		arrayAsociativo array = new arrayAsociativo();
 		assertEquals(array.primero, null);
 		}
 	
 	@Test
 	public void InsertarPrimeraEntradaEnArrayAsociativo(){
-		arrayAsociativo array = new arrayAsociativo();
 		array.put("nombre", "luis");
-		
 		assertEquals(array.primero.clave, "nombre");
 		assertEquals(array.primero.valor, "luis");
 		
 	}
+	
 }
