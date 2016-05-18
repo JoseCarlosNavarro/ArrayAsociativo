@@ -30,4 +30,14 @@ public class arrayAsociativoTest {
 		arrayAsociativo array = new arrayAsociativo();
 		assertEquals(array.primero, null);
 		}
+	
+	@Test
+	public void InsertarPrimeraEntradaEnArrayAsociativo(){
+		arrayAsociativo array = new arrayAsociativo();
+		array.put("nombre", "luis");
+		
+		assertEquals(array.primero.clave, "nombre");
+		assertEquals(array.primero.valor, "nombre");
+		
+	}
 }
