@@ -101,4 +101,11 @@ public class arrayAsociativoTest {
 		array.put("nombre", "jose");
 		assertEquals(array.containsKey("nombre"), true);
 	}
+	
+	@Test
+	public void BuscaClaveyNoLaEncuentraContainskey(){
+		array.put("alumno", "luis");
+		array.put("nombre", "jose");
+		assertEquals(array.containsKey("edad"), false);
+	}
 }
