@@ -69,9 +69,7 @@ public class arrayAsociativoTest {
 	@Test
 	public void BuscaClaveyDevuelveValorAsociado() {
 		array.put("alumno", "luis");
-		Nodo current = array.primero;
 		array.put("nombre", "jose");
-		while(current.siguiente != null && current.clave!= "nombre") current = current.siguiente;
 		assertEquals(array.get("nombre"), "jose");
 	}
 	
