@@ -23,4 +23,10 @@ public class arrayAsociativoTest {
 		assertEquals(nd.valor, "valor");
 		assertEquals(nd.siguiente, null);
 	}
+	
+	@Test
+	public void crearNuevoArrayAsociativoVacio(){
+		arrayAsociativoTest array = new arrayAsociativoTest();
+		assertArrayEquals(array.primero, null);
+		}
 }
