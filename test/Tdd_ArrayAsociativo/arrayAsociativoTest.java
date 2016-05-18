@@ -87,4 +87,11 @@ public class arrayAsociativoTest {
 		array.put("nombre", "jose");
 		assertEquals(array.getOrElse("nombre", "valorPorDefecto"), "jose");
 	}
+	
+	@Test
+	public void BuscaClaveyDevuelveValorAsociadoGetOrElseSiNoDevuelveValorPorDefecto(){
+		array.put("alumno", "luis");
+		array.put("nombre", "jose");
+		assertEquals(array.getOrElse("edad", "valorPorDefecto"), "valorPorDefecto");
+	}
 }
