@@ -27,10 +27,10 @@ public class arrayAsociativo {
 
 	public String get(String clave) {
 		Nodo current = primero;
-		while (current.siguiente != null && current.clave != clave) {
+		while (primero!=null && current.siguiente != null && current.clave != clave) {
 			current = current.siguiente;
 		}
-		if (current.clave != clave) {
+		if (primero==null || current.clave != clave) {
 			throw new ArrayAsociativoException("Clave no encontrada");
 		} else {
 			return current.valor;

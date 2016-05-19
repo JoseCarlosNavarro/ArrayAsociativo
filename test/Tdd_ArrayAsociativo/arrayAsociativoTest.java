@@ -68,6 +68,17 @@ public class arrayAsociativoTest {
 	}
 	
 	@Test
+	public void InsertarNuevaEntradaArrayConClaveRepetidaMasDeUnElementos(){
+		array.put("nombre", "luis");
+		array.put("alumno", "jose");
+		Nodo current = array.primero;
+		array.put("nombre", "jose");
+		while(current.siguiente != null && current.clave!= "nombre") current = current.siguiente;
+		assertEquals(current.clave, "nombre");
+		assertEquals(current.valor, "jose");
+	}
+	
+	@Test
 	public void BuscaClaveyDevuelveValorAsociado() {
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
@@ -81,6 +92,7 @@ public class arrayAsociativoTest {
 		array.get("edad");
 	}
 	
+
 	@Test
 	public void BuscaClaveyDevuelveValorAsociadoGetOrElse(){
 		array.put("alumno", "luis");
