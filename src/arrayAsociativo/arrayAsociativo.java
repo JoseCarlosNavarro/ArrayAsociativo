@@ -74,5 +74,13 @@ public class arrayAsociativo {
 		}
 		return cont;
 	}
-
+	
+	public boolean remove(String clave) {
+		boolean realizado = false;
+		if(primero.clave == clave){
+			primero=primero.siguiente;
+			realizado=true;
+		}
+		return realizado;
+	}
 }
