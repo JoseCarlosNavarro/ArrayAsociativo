@@ -86,6 +86,13 @@ public class arrayAsociativoTest {
 		assertEquals(array.get("nombre"), "jose");
 	}
 	
+	@Test
+	public void BuscaClaveyDevuelveValorAsociadoPrimero() {
+		array.put("alumno", "luis");
+		array.put("nombre", "jose");
+		assertEquals(array.get("alumno"), "luis");
+	}
+	
 	@Test(expected = ArrayAsociativoException.class)
 	public void BuscaClaveyDevuelveValorAsociadoSinoEncuentraElevaExcepcion(){
 		array.put("alumno", "luis");
