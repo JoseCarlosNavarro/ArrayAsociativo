@@ -40,33 +40,33 @@ public class arrayAsociativo {
 
 	public String getOrElse(String clave, String valorPorDefecto) {
 		Nodo current = primero;
-		String valor="";
+		String valor = "";
 		while (current.siguiente != null && current.clave != clave) {
 			current = current.siguiente;
 		}
 		if (current.clave == clave) {
 			valor = current.valor;
-		} else{
+		} else {
 			valor = valorPorDefecto;
 		}
 		return valor;
 	}
 
 	public Boolean containsKey(String clave) {
-		boolean esta=false;
+		boolean esta = false;
 		Nodo current = primero;
 		while (current.siguiente != null && current.clave != clave) {
 			current = current.siguiente;
 		}
-		
-		if(current.clave==clave){
-			esta=true;
+
+		if (current.clave == clave) {
+			esta = true;
 		}
 		return esta;
 	}
 
 	public int size() {
-		int cont=0;
+		int cont = 0;
 		Nodo current = primero;
 		while (current.siguiente != null) {
 			cont++;
