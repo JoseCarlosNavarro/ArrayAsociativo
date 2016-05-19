@@ -123,6 +123,13 @@ public class arrayAsociativoTest {
 	}
 	
 	@Test
+	public void BuscaClaveyLaEncuentraEsElPrimeroContainskey(){
+		array.put("alumno", "luis");
+		array.put("nombre", "jose");
+		assertEquals(array.containsKey("alumno"), true);
+	}
+	
+	@Test
 	public void BuscaClaveyNoLaEncuentraContainskey(){
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
