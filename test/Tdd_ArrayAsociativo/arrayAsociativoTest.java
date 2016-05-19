@@ -115,4 +115,10 @@ public class arrayAsociativoTest {
 		array.put("nombre", "jose");
 		assertEquals(array.size(), 2);
 	}
+	
+	public void BorrarParAsociadoAClaveConExito(){
+		array.put("alumno", "luis");
+		array.put("nombre", "jose");
+		assertEquals(array.remove("alumno"), true);
+	}
 }
