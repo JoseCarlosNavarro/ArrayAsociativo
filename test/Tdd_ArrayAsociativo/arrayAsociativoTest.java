@@ -122,4 +122,10 @@ public class arrayAsociativoTest {
 		array.put("nombre", "jose");
 		assertEquals(array.remove("alumno"), true);
 	}
+	
+	public void BorrarParAsociadoAClaveConExitoUltimo(){
+		array.put("alumno", "luis");
+		array.put("nombre", "jose");
+		assertEquals(array.remove("nombre"), true);
+	}
 }
