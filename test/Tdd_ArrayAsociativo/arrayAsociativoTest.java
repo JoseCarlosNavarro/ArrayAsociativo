@@ -93,6 +93,11 @@ public class arrayAsociativoTest {
 		array.get("edad");
 	}
 	
+	@Test(expected = ArrayAsociativoException.class)
+	public void BuscaClaveyDevuelveValorAsociadoSinoEncuentraElevaExcepcionVacio(){
+		array.get("edad");
+	}
+	
 
 	@Test
 	public void BuscaClaveyDevuelveValorAsociadoGetOrElse(){
