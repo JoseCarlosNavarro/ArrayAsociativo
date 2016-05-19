@@ -77,16 +77,16 @@ public class arrayAsociativo {
 
 	public boolean remove(String clave) {
 		boolean realizado = false;
-		if (primero.clave == clave) {
+		if (primero!= null && primero.clave == clave) {
 			primero = primero.siguiente;
 			realizado = true;
-		} else {
+		} else if(primero != null){
 			Nodo current = primero;
 			while (current.siguiente != null
 					&& current.siguiente.clave != clave) {
 				current = current.siguiente;
 			}
-			if (current.siguiente != null && current.siguiente.clave == clave) {
+			if (current.siguiente != null) {
 				current.siguiente = current.siguiente.siguiente;
 				realizado = true;
 			}

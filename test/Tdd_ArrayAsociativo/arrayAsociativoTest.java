@@ -169,9 +169,22 @@ public class arrayAsociativoTest {
 		assertEquals(array.remove("edad"), true);
 	}
 	
+
+	
 	@Test
 	public void BorrarParAsociadoAClaveSinExito(){
 		array.put("alumno", "luis");
+		array.put("nombre", "jose");
+		assertEquals(array.remove("edad"), false);
+	}
+	
+	@Test
+	public void BorrarParAsociadoAClaveSinExitoVacio(){
+		assertEquals(array.remove("edad"), false);
+	}
+	
+	@Test
+	public void BorrarParAsociadoAClaveSinExitoUno(){
 		array.put("nombre", "jose");
 		assertEquals(array.remove("edad"), false);
 	}
