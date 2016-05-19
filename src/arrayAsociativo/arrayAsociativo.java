@@ -82,10 +82,11 @@ public class arrayAsociativo {
 			realizado = true;
 		} else {
 			Nodo current = primero;
-			while (current.siguiente != null && current.siguiente.clave != clave) {
+			while (current.siguiente != null
+					&& current.siguiente.clave != clave) {
 				current = current.siguiente;
 			}
-			if (current.siguiente.clave == clave) {
+			if (current.siguiente != null && current.siguiente.clave == clave) {
 				current.siguiente = current.siguiente.siguiente;
 				realizado = true;
 			}
