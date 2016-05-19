@@ -123,9 +123,11 @@ public class arrayAsociativoTest {
 		assertEquals(array.remove("alumno"), true);
 	}
 	
+	@Test
 	public void BorrarParAsociadoAClaveConExitoUltimo(){
 		array.put("alumno", "luis");
+		array.put("edad", "jose");
 		array.put("nombre", "jose");
-		assertEquals(array.remove("nombre"), true);
+		assertEquals(array.remove("edad"), true);
 	}
 }
