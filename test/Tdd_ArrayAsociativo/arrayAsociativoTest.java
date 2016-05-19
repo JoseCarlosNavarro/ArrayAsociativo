@@ -1,6 +1,6 @@
 package Tdd_ArrayAsociativo;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,12 +11,13 @@ import arrayAsociativo.arrayAsociativo;
 
 public class arrayAsociativoTest {
 	arrayAsociativo array;
+
 	@Before
-	public void setUp(){
+	public void setUp() {
 		array = new arrayAsociativo();
-		
+
 	}
-	 
+
 	@Test
 	public void crearNodoVacio() {
 		Nodo nd = new Nodo();
@@ -26,165 +27,166 @@ public class arrayAsociativoTest {
 	}
 
 	@Test
-	public void crearNodoConDatos(){
-		Nodo nd = new Nodo("clave","valor");
+	public void crearNodoConDatos() {
+		Nodo nd = new Nodo("clave", "valor");
 		assertEquals(nd.clave, "clave");
 		assertEquals(nd.valor, "valor");
 		assertEquals(nd.siguiente, null);
 	}
-	
+
 	@Test
-	public void crearNuevoArrayAsociativoVacio(){
+	public void crearNuevoArrayAsociativoVacio() {
 		assertEquals(array.primero, null);
-		}
-	
+	}
+
 	@Test
-	public void InsertarPrimeraEntradaEnArrayAsociativo(){
+	public void InsertarPrimeraEntradaEnArrayAsociativo() {
 		array.put("nombre", "luis");
 		assertEquals(array.primero.clave, "nombre");
 		assertEquals(array.primero.valor, "luis");
-		
+
 	}
-	
+
 	@Test
-	public void InsertarNuevaEntradaSinClaveRepetida(){
+	public void InsertarNuevaEntradaSinClaveRepetida() {
 		array.put("edad", "14");
 		Nodo current = array.primero;
 		array.put("nombre", "luis");
-		while(current.siguiente != null) current = current.siguiente;
+		while (current.siguiente != null)
+			current = current.siguiente;
 		assertEquals(current.clave, "nombre");
 		assertEquals(current.valor, "luis");
-		
+
 	}
-	
+
 	@Test
-	public void InsertarNuevaEntradaArrayConClaveRepetida(){
+	public void InsertarNuevaEntradaArrayConClaveRepetida() {
 		array.put("nombre", "luis");
-		Nodo current = array.primero;
 		array.put("nombre", "jose");
-		while(current.siguiente != null && current.clave!= "nombre") current = current.siguiente;
-		assertEquals(current.clave, "nombre");
-		assertEquals(current.valor, "jose");
+		assertEquals(array.primero.clave, "nombre");
+		assertEquals(array.primero.valor, "jose");
 	}
-	
+
 	@Test
-	public void InsertarNuevaEntradaArrayConClaveRepetidaMasElementos(){
+	public void InsertarNuevaEntradaArrayConClaveRepetidaNoPrimeroNiUltimo() {
 		array.put("nombre", "luis");
 		Nodo current = array.primero;
 		array.put("alumno", "francisco");
-		array.put("nombre", "jose");
-		while(current.siguiente != null && current.clave!= "nombre") current = current.siguiente;
-		assertEquals(current.clave, "nombre");
+		array.put("edad", "14");
+		array.put("alumno", "jose");
+
+		while (current.clave != "alumno") {
+			current = current.siguiente;
+		}
+		assertEquals(current.clave, "alumno");
 		assertEquals(current.valor, "jose");
 	}
-	
+
 	@Test
 	public void BuscaClaveyDevuelveValorAsociado() {
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
 		assertEquals(array.get("nombre"), "jose");
 	}
-	
+
 	@Test
 	public void BuscaClaveyDevuelveValorAsociadoPrimero() {
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
 		assertEquals(array.get("alumno"), "luis");
 	}
-	
+
 	@Test(expected = ArrayAsociativoException.class)
-	public void BuscaClaveyDevuelveValorAsociadoSinoEncuentraElevaExcepcion(){
+	public void BuscaClaveyDevuelveValorAsociadoSinoEncuentraElevaExcepcion() {
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
 		array.get("edad");
 	}
-	
+
 	@Test(expected = ArrayAsociativoException.class)
-	public void BuscaClaveyDevuelveValorAsociadoSinoEncuentraElevaExcepcionVacio(){
+	public void BuscaClaveyDevuelveValorAsociadoSinoEncuentraElevaExcepcionVacio() {
 		array.get("edad");
 	}
-	
 
 	@Test
-	public void BuscaClaveyDevuelveValorAsociadoGetOrElse(){
+	public void BuscaClaveyDevuelveValorAsociadoGetOrElse() {
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
 		assertEquals(array.getOrElse("nombre", "valorPorDefecto"), "jose");
 	}
-	
+
 	@Test
-	public void BuscaClaveyDevuelveValorAsociadoGetOrElseBorroPrimero(){
+	public void BuscaClaveyDevuelveValorAsociadoGetOrElseBorroPrimero() {
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
 		assertEquals(array.getOrElse("alumno", "valorPorDefecto"), "luis");
 	}
-	
+
 	@Test
-	public void BuscaClaveyDevuelveValorAsociadoGetOrElseSiNoDevuelveValorPorDefecto(){
+	public void BuscaClaveyDevuelveValorAsociadoGetOrElseSiNoDevuelveValorPorDefecto() {
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
-		assertEquals(array.getOrElse("edad", "valorPorDefecto"), "valorPorDefecto");
+		assertEquals(array.getOrElse("edad", "valorPorDefecto"),
+				"valorPorDefecto");
 	}
-	
+
 	@Test
-	public void BuscaClaveyLaEncuentraContainskey(){
+	public void BuscaClaveyLaEncuentraContainskey() {
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
 		assertEquals(array.containsKey("nombre"), true);
 	}
-	
+
 	@Test
-	public void BuscaClaveyLaEncuentraEsElPrimeroContainskey(){
+	public void BuscaClaveyLaEncuentraEsElPrimeroContainskey() {
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
 		assertEquals(array.containsKey("alumno"), true);
 	}
-	
+
 	@Test
-	public void BuscaClaveyNoLaEncuentraContainskey(){
+	public void BuscaClaveyNoLaEncuentraContainskey() {
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
 		assertEquals(array.containsKey("edad"), false);
 	}
-	
+
 	@Test
 	public void NumeroDeEntradasDelArray() {
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
 		assertEquals(array.size(), 2);
 	}
-	
+
 	@Test
-	public void BorrarParAsociadoAClaveConExitoPrimero(){
+	public void BorrarParAsociadoAClaveConExitoPrimero() {
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
 		assertEquals(array.remove("alumno"), true);
 	}
-	
+
 	@Test
-	public void BorrarParAsociadoAClaveConExito(){
+	public void BorrarParAsociadoAClaveConExito() {
 		array.put("alumno", "luis");
 		array.put("edad", "jose");
 		array.put("nombre", "jose");
 		assertEquals(array.remove("edad"), true);
 	}
-	
 
-	
 	@Test
-	public void BorrarParAsociadoAClaveSinExito(){
+	public void BorrarParAsociadoAClaveSinExito() {
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
 		assertEquals(array.remove("edad"), false);
 	}
-	
+
 	@Test
-	public void BorrarParAsociadoAClaveSinExitoVacio(){
+	public void BorrarParAsociadoAClaveSinExitoVacio() {
 		assertEquals(array.remove("edad"), false);
 	}
-	
+
 	@Test
-	public void BorrarParAsociadoAClaveSinExitoUno(){
+	public void BorrarParAsociadoAClaveSinExitoUno() {
 		array.put("nombre", "jose");
 		assertEquals(array.remove("edad"), false);
 	}

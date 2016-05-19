@@ -11,26 +11,29 @@ public class arrayAsociativo {
 	public void put(String clave, String valor) {
 		if (primero == null) {
 			primero = new Nodo(clave, valor);
-		}
-		Nodo current = primero;
-
-		while (current.siguiente != null && current.clave != clave)
-			current = current.siguiente;
-
-		if (current.clave != clave) {
-			current.siguiente = new Nodo(clave, valor);
 		} else {
-			current.valor = valor;
+			Nodo current = primero;
+
+			while (current.siguiente != null && current.clave != clave) {
+				current = current.siguiente;
+			}
+
+			if (current.clave != clave) {
+				current.siguiente = new Nodo(clave, valor);
+			} else {
+				current.valor = valor;
+			}
 		}
 
 	}
 
 	public String get(String clave) {
 		Nodo current = primero;
-		while (primero!=null && current.siguiente != null && current.clave != clave) {
+		while (primero != null && current.siguiente != null
+				&& current.clave != clave) {
 			current = current.siguiente;
 		}
-		if (primero==null || current.clave != clave) {
+		if (primero == null || current.clave != clave) {
 			throw new ArrayAsociativoException("Clave no encontrada");
 		} else {
 			return current.valor;
@@ -77,10 +80,10 @@ public class arrayAsociativo {
 
 	public boolean remove(String clave) {
 		boolean realizado = false;
-		if (primero!= null && primero.clave == clave) {
+		if (primero != null && primero.clave == clave) {
 			primero = primero.siguiente;
 			realizado = true;
-		} else if(primero != null){
+		} else if (primero != null) {
 			Nodo current = primero;
 			while (current.siguiente != null
 					&& current.siguiente.clave != clave) {
