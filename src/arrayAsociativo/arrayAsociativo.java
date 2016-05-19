@@ -37,6 +37,7 @@ public class arrayAsociativo {
 			throw new ArrayAsociativoException("Clave no encontrada");
 		} else {
 			return current.valor;
+
 		}
 
 	}
