@@ -78,6 +78,7 @@ public class arrayAsociativoTest {
 		assertEquals(current.valor, "jose");
 	}
 	
+	
 	@Test
 	public void BuscaClaveyDevuelveValorAsociado() {
 		array.put("alumno", "luis");
@@ -98,6 +99,13 @@ public class arrayAsociativoTest {
 		array.put("alumno", "luis");
 		array.put("nombre", "jose");
 		assertEquals(array.getOrElse("nombre", "valorPorDefecto"), "jose");
+	}
+	
+	@Test
+	public void BuscaClaveyDevuelveValorAsociadoGetOrElseBorroPrimero(){
+		array.put("alumno", "luis");
+		array.put("nombre", "jose");
+		assertEquals(array.getOrElse("alumno", "valorPorDefecto"), "luis");
 	}
 	
 	@Test
