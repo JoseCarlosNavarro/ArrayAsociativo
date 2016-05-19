@@ -17,7 +17,7 @@ public class arrayAsociativo {
 		while (current.siguiente != null && current.clave != clave)
 			current = current.siguiente;
 
-		if (current.siguiente == null) {
+		if (current.clave != clave) {
 			current.siguiente = new Nodo(clave, valor);
 		} else {
 			current.valor = valor;
@@ -68,7 +68,7 @@ public class arrayAsociativo {
 	public int size() {
 		int cont = 0;
 		Nodo current = primero;
-		while (current.siguiente != null) {
+		while (current != null) {
 			cont++;
 			current = current.siguiente;
 		}

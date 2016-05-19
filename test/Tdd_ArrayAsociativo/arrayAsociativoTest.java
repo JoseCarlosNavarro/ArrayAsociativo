@@ -68,16 +68,15 @@ public class arrayAsociativoTest {
 	}
 	
 	@Test
-	public void InsertarNuevaEntradaArrayConClaveRepetidaMasDeUnElementos(){
+	public void InsertarNuevaEntradaArrayConClaveRepetidaMasElementos(){
 		array.put("nombre", "luis");
-		array.put("alumno", "jose");
 		Nodo current = array.primero;
+		array.put("alumno", "francisco");
 		array.put("nombre", "jose");
 		while(current.siguiente != null && current.clave!= "nombre") current = current.siguiente;
 		assertEquals(current.clave, "nombre");
 		assertEquals(current.valor, "jose");
 	}
-	
 	
 	@Test
 	public void BuscaClaveyDevuelveValorAsociado() {
